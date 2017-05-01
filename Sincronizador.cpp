@@ -15,11 +15,11 @@ Sincronizador::Sincronizador() {
 Sincronizador::~Sincronizador() {
 }
 
-int Sincronizador::FetchAndAdd(int &num, int incr) {
+int Sincronizador::FetchAndAdd(int * num, int incr) {
 	pthread_mutex_lock(&lock);
 
-	int tmp = num;
-	num = num + incr;
+	int tmp = *num;
+	*num = *num + incr;
 
 	pthread_mutex_unlock(&lock);
 

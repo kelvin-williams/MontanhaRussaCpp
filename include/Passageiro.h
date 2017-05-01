@@ -10,6 +10,8 @@
 
 #include "Thread.h"
 #include "Carro.h"
+#include "Sincronizador.h"
+//#include "definitions.h"
 
 class Passageiro: public Thread {
 public:
@@ -20,6 +22,9 @@ public:
 	void saiDoCarro();
 	void passeiaPeloParque();
 	bool parqueFechado();
+	int id;
+	int filai;
+	int filao;
 
 	void run();
 private:

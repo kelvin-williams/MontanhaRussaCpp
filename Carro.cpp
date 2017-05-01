@@ -20,13 +20,26 @@ Carro::~Carro() {
 
 void Carro::esperaEncher() {
 
+	carroaberto = true;
+	printf("\nCarro aberto");
+	while(pic < 5)continue;
+	carroaberto = false;
+
 }
 
 void Carro::daUmaVolta() {
 
+//	carroaberto = false;
+	andando = true;
+	sleep(5);
+
 }
 
 void Carro::esperaEsvaziar() {
+
+	andando = false;
+	while(pic > 0)continue;
+	carroaberto = true;
 
 }
 

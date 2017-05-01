@@ -16,7 +16,7 @@ public:
 
 	Sincronizador();
 	virtual ~Sincronizador();
-	static int FetchAndAdd(int& num, int incr);
+	static int FetchAndAdd(int * num, int incr);
 };
 
 #endif /* SINCRONIZADOR_H_ */
