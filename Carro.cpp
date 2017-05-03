@@ -20,8 +20,9 @@ Carro::~Carro() {
 
 void Carro::esperaEncher() {
 
+	std::cerr<<"\n\nCarro aberto";
 	carroaberto = true;
-	printf("\nCarro aberto");
+	
 	while(pic < 5)continue;
 	carroaberto = false;
 
@@ -30,16 +31,20 @@ void Carro::esperaEncher() {
 void Carro::daUmaVolta() {
 
 //	carroaberto = false;
+	std::cerr<<"\n\nCarro Andando";
 	andando = true;
+	
 	sleep(5);
-
+	std::cerr<<"\nTerminou";
 }
 
 void Carro::esperaEsvaziar() {
 
 	andando = false;
-	while(pic > 0)continue;
-	carroaberto = true;
+	while(pic != 0)continue;
+//	carroaberto = true;
+//	printf("\n\nCarro aberto");
+
 
 }
 

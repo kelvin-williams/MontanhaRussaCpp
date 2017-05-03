@@ -21,15 +21,16 @@ void Passageiro::entraNoCarro() {
 
 	Sincronizador Sync;
 	filai = Sync.FetchAndAdd(&ticketi, 1); //entry protocol
-	printf("\nPassageiro %d entrou na fila", id);
+//	printf("\nPassageiro %d entrou na fila com ticket %d", id, filai);
 
-	while(carroaberto == false || pic >= 5)continue;
+	while(carroaberto == false || pic >= 5 || andando == true)continue;
 
 	while(filai != nexti){
 	continue;}
 
+	std::cerr<<"\nPassageiro "<<id<<" entrou no carro com ticket "<<filai<<",    pic = "<<pic+1;
 	pic = pic+1;
-	printf("\nPassageiro %d entrou no carro", id); 
+	
 
 	nexti = nexti+1; //exit protocol
 
@@ -37,6 +38,8 @@ void Passageiro::entraNoCarro() {
 
 void Passageiro::esperaVoltaAcabar() {
 
+	
+	while(andando == false) continue;
 	while(andando == true) continue;
 
 }
@@ -50,7 +53,8 @@ void Passageiro::saiDoCarro() {
 	continue;}
 
 	pic = pic-1;
-	printf("\nPassageiro %d saiu no carro", id);
+	std::cerr<<"\nPassageiro "<<id<<" saiu do carro,       pic = "<<pic;
+	voltas++;
 
 	nexto = nexto+1; //exit protocol
 
@@ -58,8 +62,9 @@ void Passageiro::saiDoCarro() {
 
 void Passageiro::passeiaPeloParque() {
 
-	printf("\nPassageiro %d está passeando", id);
+	
 	float r = 10 * (static_cast <float> (rand()) / static_cast <float> (RAND_MAX));
+	std::cerr<<"\nPassageiro "<<id<<" vai passear por "<<(int)r<<" segundos";
 	sleep(r);
 
 }

@@ -25,6 +25,7 @@ public:
 	int id;
 	int filai;
 	int filao;
+	int voltas;
 
 	void run();
 private:
