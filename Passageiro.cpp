@@ -23,10 +23,10 @@ void Passageiro::entraNoCarro() {
 	filai = Sync.FetchAndAdd(&ticketi, 1); //entry protocol
 //	printf("\nPassageiro %d entrou na fila com ticket %d", id, filai);
 
-	while(carroaberto == false || pic >= 5 || andando == true)continue;
-
 	while(filai != nexti){
 	continue;}
+
+	while(carroaberto == false || pic >= 5 || andando == true)continue;
 
 	std::cerr<<"\nPassageiro "<<id<<" entrou no carro com ticket "<<filai<<",    pic = "<<pic+1;
 	pic = pic+1;
@@ -52,8 +52,9 @@ void Passageiro::saiDoCarro() {
 	while(filao != nexto){
 	continue;}
 
+	std::cerr<<"\nPassageiro "<<id<<" saiu do carro,       pic = "<<pic-1;
 	pic = pic-1;
-	std::cerr<<"\nPassageiro "<<id<<" saiu do carro,       pic = "<<pic;
+	
 	voltas++;
 
 	nexto = nexto+1; //exit protocol
