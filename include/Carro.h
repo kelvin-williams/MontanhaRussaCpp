@@ -21,6 +21,14 @@ public:
 	void esperaEsvaziar();
 	int getNVoltas();
 	Parque &getParque();
+	int ticketi;
+    int ticketo;
+    int nexti;
+    int nexto;
+
+    int pic; //pic = passengers in car
+    bool andando;
+    bool carroaberto;
 
 	void run();
 private:

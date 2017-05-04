@@ -17,7 +17,7 @@ Parque::~Parque() {
 }
 
 int Parque::getNumPassageiros() {
-	return numPassageiros;
+	return npass;
 }
 
 void Parque::setNumPassageiros(int num) {

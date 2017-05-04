@@ -13,6 +13,13 @@ Carro::Carro(Parque &p) : parque(p) {
 	this->voltas = 0;
 	Carro::capacidade = p.getNumPassageiros() / 2;
 	this->nPassageiros = 0;
+	this->ticketi = 1;
+	this->ticketo = 0;
+	this->nexti = 1;
+	this->nexto = 0;
+	this->pic = 0; //pic = passengers in car
+	this->andando = false;
+	this->carroaberto = false;
 }
 
 Carro::~Carro() {
@@ -23,19 +30,25 @@ void Carro::esperaEncher() {
 	std::cerr<<"\n\nCarro aberto";
 	carroaberto = true;
 	
-	while(pic < 5)continue;
+	while(pic < 5){
+		if(pic == parque.getNumPassageiros())
+			break;
+			
+			continue;
+			}
 	carroaberto = false;
 
 }
 
 void Carro::daUmaVolta() {
 
-//	carroaberto = false;
+	if(parque.getNumPassageiros() != 0){
 	std::cerr<<"\n\nCarro Andando";
 	andando = true;
 	
 	sleep(5);
 	std::cerr<<"\nTerminou";
+	}
 }
 
 void Carro::esperaEsvaziar() {
@@ -66,4 +79,5 @@ void Carro::run() {
 
 		voltas++;
 	}
+	std::cerr<<"\n\n======================/ Sem mais passageiros, Parque fechado /======================\n\n";
 }

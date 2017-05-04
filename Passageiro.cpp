@@ -8,7 +8,7 @@
 #include "include/Passageiro.h"
 #include <random>
 
-#define MAX_NUM_VOLTAS 100
+#define MAX_NUM_VOLTAS 3
 
 Passageiro::Passageiro(Carro &c) : carro(c) {
 }
@@ -20,44 +20,44 @@ void Passageiro::entraNoCarro() {
 	
 
 	Sincronizador Sync;
-	filai = Sync.FetchAndAdd(&ticketi, 1); //entry protocol
+	filai = Sync.FetchAndAdd(&(carro.ticketi), 1); //entry protocol
 //	printf("\nPassageiro %d entrou na fila com ticket %d", id, filai);
 
-	while(filai != nexti){
+	while(filai != carro.nexti){
 	continue;}
 
-	while(carroaberto == false || pic >= 5 || andando == true)continue;
+	while(carro.carroaberto == false || carro.pic >= 5 || carro.andando == true)continue;
 
-	std::cerr<<"\nPassageiro "<<id<<" entrou no carro com ticket "<<filai<<",    pic = "<<pic+1;
-	pic = pic+1;
+	std::cerr<<"\nPassageiro "<<id<<" entrou no carro com ticket "<<filai<<",    pic = "<<carro.pic+1;
+	carro.pic = carro.pic+1;
 	
 
-	nexti = nexti+1; //exit protocol
+	carro.nexti = carro.nexti+1; //exit protocol
 
 }
 
 void Passageiro::esperaVoltaAcabar() {
 
 	
-	while(andando == false) continue;
-	while(andando == true) continue;
+	while(carro.andando == false) continue;
+	while(carro.andando == true) continue;
 
 }
 
 void Passageiro::saiDoCarro() {
 
     Sincronizador Sync;
-	filao = Sync.FetchAndAdd(&ticketo, 1); //entry protocol
+	filao = Sync.FetchAndAdd(&(carro.ticketo), 1); //entry protocol
 
-	while(filao != nexto){
+	while(filao != carro.nexto){
 	continue;}
 
-	std::cerr<<"\nPassageiro "<<id<<" saiu do carro,       pic = "<<pic-1;
-	pic = pic-1;
+	std::cerr<<"\nPassageiro "<<id<<" saiu do carro,       pic = "<<carro.pic-1;
+	carro.pic = carro.pic-1;
 	
 	voltas++;
 
-	nexto = nexto+1; //exit protocol
+	carro.nexto = carro.nexto+1; //exit protocol
 
 }
 
@@ -88,6 +88,7 @@ void Passageiro::run() {
 		passeiaPeloParque(); // secao nao critica
 	}
 
-	// decrementa o numero de passageiros no parque
+	std::cerr<<"\n\nPassageiro "<<id<<" saiu do parque"<<std::endl;
+	npass--;// decrementa o numero de passageiros no parque
 }
 

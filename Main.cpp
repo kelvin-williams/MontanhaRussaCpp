@@ -1,4 +1,6 @@
-#include "include/definitions.h"
+//#include "include/definitions.h"
+
+int npass = 10;
 
 #include <iostream>
 #include <unistd.h>
@@ -17,13 +19,13 @@ using namespace std;
 
 int main() {
 
-	Parque p(10);
+	Parque p(npass);
 
     Carro c(p);
     
-    Passageiro *passageiros[10];
+    Passageiro *passageiros[npass];
 
-	for(int i = 0; i<10; i++ ){
+	for(int i = 0; i<npass; i++ ){
 
 		passageiros[i] = new Passageiro(c);
 		passageiros[i]->id = i;
@@ -31,7 +33,7 @@ int main() {
 	}
 
 	c.start();
-	for(int k = 0; k<10; k++){
+	for(int k = 0; k<npass; k++){
 
 		passageiros[k]->start();
 	}
