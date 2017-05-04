@@ -12,7 +12,7 @@ int Carro::capacidade = 0;;
 Carro::Carro(Parque &p) : parque(p) {
 	this->voltas = 0;
 	Carro::capacidade = p.getNumPassageiros() / 2;
-	this->nPassageiros = 0;
+//	this->nPassageiros = 0;
 	this->ticketi = 1;
 	this->ticketo = 0;
 	this->nexti = 1;

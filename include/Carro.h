@@ -34,7 +34,7 @@ public:
 private:
 	static int capacidade;
 	int voltas;
-	int nPassageiros;
+//	int nPassageiros;
 	Parque &parque;
 };
 
