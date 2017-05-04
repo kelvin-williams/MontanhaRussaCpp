@@ -88,7 +88,7 @@ void Passageiro::run() {
 		passeiaPeloParque(); // secao nao critica
 	}
 
-	std::cerr<<"\n\nPassageiro "<<id<<" saiu do parque"<<std::endl;
+	std::cerr<<"\n\nPassageiro "<<id<<" saiu do parque"<<", Número de voltas = "<<voltas<<std::endl;
 	npass--;// decrementa o numero de passageiros no parque
 }
 

@@ -28,7 +28,7 @@ int main() {
 	for(int i = 0; i<npass; i++ ){
 
 		passageiros[i] = new Passageiro(c);
-		passageiros[i]->id = i;
+		passageiros[i]->id = i+1;
 
 	}
 
