@@ -71,7 +71,7 @@ void Passageiro::passeiaPeloParque() {
 }
 
 bool Passageiro::parqueFechado() {
-	if (carro.getNVoltas()-1 <= MAX_NUM_VOLTAS)
+	if (carro.getNVoltas() <= MAX_NUM_VOLTAS)
 		return false;
 
 	return true;
