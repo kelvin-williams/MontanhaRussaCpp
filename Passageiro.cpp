@@ -26,7 +26,7 @@ void Passageiro::entraNoCarro() {
 	while(filai != carro.nexti){
 	continue;}
 
-	while(carro.carroaberto == false || carro.pic >= 5 || carro.andando == true)continue;
+	while(carro.carroaberto == false || carro.pic >= 5)continue;
 
 	std::cerr<<"\nPassageiro "<<id<<" entrou no carro com ticket "<<filai<<",    pic = "<<carro.pic+1;
 	carro.pic = carro.pic+1;
@@ -71,7 +71,7 @@ void Passageiro::passeiaPeloParque() {
 }
 
 bool Passageiro::parqueFechado() {
-	if (carro.getNVoltas() <= MAX_NUM_VOLTAS)
+	if (carro.getNVoltas()-1 <= MAX_NUM_VOLTAS)
 		return false;
 
 	return true;

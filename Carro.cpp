@@ -10,7 +10,7 @@
 int Carro::capacidade = 0;;
 
 Carro::Carro(Parque &p) : parque(p) {
-	this->voltas = 0;
+	this->voltas = 1;
 	Carro::capacidade = p.getNumPassageiros() / 2;
 //	this->nPassageiros = 0;
 	this->ticketi = 1;
@@ -47,7 +47,7 @@ void Carro::daUmaVolta() {
 	andando = true;
 	
 	sleep(5);
-	std::cerr<<"\nTerminou";
+	std::cerr<<"\nTerminou a volta nº "<<voltas;
 	}
 }
 

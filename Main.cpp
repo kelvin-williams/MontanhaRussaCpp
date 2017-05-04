@@ -1,5 +1,3 @@
-//#include "include/definitions.h"
-
 int npass = 10;
 
 #include <iostream>
@@ -11,7 +9,6 @@ int npass = 10;
 #include "Thread.cpp"
 
 #define NUM_THREADS 10
-
 
 
 using namespace std;
