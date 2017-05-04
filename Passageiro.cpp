@@ -8,7 +8,7 @@
 #include "include/Passageiro.h"
 #include <random>
 
-#define MAX_NUM_VOLTAS 3
+#define MAX_NUM_VOLTAS 10
 
 Passageiro::Passageiro(Carro &c) : carro(c) {
 }
