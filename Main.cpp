@@ -1,4 +1,7 @@
-int npass = 10;
+#define NUM_THREADS 20
+#define MAX_NUM_VOLTAS 10
+
+int npass = NUM_THREADS;
 
 #include <iostream>
 #include <unistd.h>
@@ -7,8 +10,6 @@ int npass = 10;
 #include "Carro.cpp"
 #include "Sincronizador.cpp"
 #include "Thread.cpp"
-
-#define NUM_THREADS 10
 
 
 using namespace std;

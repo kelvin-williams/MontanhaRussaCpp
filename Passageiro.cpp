@@ -8,8 +8,6 @@
 #include "include/Passageiro.h"
 #include <random>
 
-#define MAX_NUM_VOLTAS 10
-
 Passageiro::Passageiro(Carro &c) : carro(c) {
 }
 
@@ -26,7 +24,7 @@ void Passageiro::entraNoCarro() {
 	while(filai != carro.nexti){
 	continue;}
 
-	while(carro.carroaberto == false || carro.pic >= 5)continue;
+	while(carro.carroaberto == false || carro.pic >= carro.capacidade)continue;
 
 	std::cerr<<"\nPassageiro "<<id<<" entrou no carro com ticket "<<filai<<",    pic = "<<carro.pic+1;
 	carro.pic = carro.pic+1;
@@ -65,13 +63,13 @@ void Passageiro::passeiaPeloParque() {
 
 	
 	float r = 10 * (static_cast <float> (rand()) / static_cast <float> (RAND_MAX));
-	std::cerr<<"\nPassageiro "<<id<<" vai passear por "<<(int)r<<" segundos";
+	std::cerr<<"\nPassageiro "<<id<<" vai passear por "<<(int)r<<" segundo(s)";
 	sleep(r);
 
 }
 
 bool Passageiro::parqueFechado() {
-	if (carro.getNVoltas() <= MAX_NUM_VOLTAS)
+	if (carro.nexti <= MAX_NUM_VOLTAS * carro.capacidade)
 		return false;
 
 	return true;

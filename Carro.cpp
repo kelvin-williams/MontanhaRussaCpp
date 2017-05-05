@@ -7,7 +7,7 @@
 
 #include "include/Carro.h"
 
-int Carro::capacidade = 0;;
+//int Carro::capacidade = 0;;
 
 Carro::Carro(Parque &p) : parque(p) {
 	this->voltas = 1;
@@ -30,7 +30,7 @@ void Carro::esperaEncher() {
 	std::cerr<<"\n\nCarro aberto";
 	carroaberto = true;
 	
-	while(pic < 5){
+	while(pic < capacidade){
 		if(pic == parque.getNumPassageiros())
 			break;
 			

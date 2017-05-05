@@ -21,6 +21,7 @@ public:
 	void esperaEsvaziar();
 	int getNVoltas();
 	Parque &getParque();
+	int capacidade;
 	int ticketi;
     int ticketo;
     int nexti;
@@ -32,7 +33,6 @@ public:
 
 	void run();
 private:
-	static int capacidade;
 	int voltas;
 //	int nPassageiros;
 	Parque &parque;
